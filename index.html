@@ -193,7 +193,10 @@ GALLERY.forEach(g=>{
   }
   grid.appendChild(f);
 });
-if(!GALLERY.length) document.getElementById("empty").hidden=false;
+if(!GALLERY.length){
+  document.getElementById("gallery").hidden=true;
+  document.querySelector('nav a[href="#gallery"]').hidden=true;
+}
 const dl=document.getElementById("docs-list");
 DOCS.forEach(d=>{const li=document.createElement("li");li.innerHTML=`<a href="${d.url}" target="_blank" rel="noopener">${d.title}</a>`;dl.appendChild(li)});
 </script>
