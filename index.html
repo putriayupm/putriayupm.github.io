@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Putri Ayu Pembayun M — Computer Engineering</title>
+<meta name="description" content="Computer Engineering student at Universitas Indonesia. From processor logic to full-stack apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5FA; --ink:#1B1830; --mute:#5E5A75; --violet:#6B4FBB; --soft:#E6E1F4; --line:#D5CFE8; --white:#fff;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--paper:#15131F; --ink:#EFEDF8; --mute:#A9A4C2; --violet:#A58DF0; --soft:#26223A; --line:#363150; --white:#1D1A2C}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 1.05rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:22px;align-items:center;height:56px;overflow-x:auto;white-space:nowrap}
+nav b{font:700 1rem var(--head);margin-right:auto}
+nav a{text-decoration:none;color:var(--mute);font-size:.95rem}
+nav a:hover{color:var(--violet)}
+h1,h2,h3{font-family:var(--head);line-height:1.1}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:28px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+/* hero */
+.hero{padding:64px 0 72px;border:0}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+h1{font-size:clamp(2.6rem,7vw,4.6rem);font-weight:800;letter-spacing:-.025em}
+.lead{font-size:1.2rem;color:var(--mute);max-width:34em;margin:20px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:11px 20px;border-radius:999px;border:1.5px solid var(--ink);text-decoration:none;font-weight:600}
+.btn.main{background:var(--ink);color:var(--paper)}
+.btn:hover{border-color:var(--violet);background:var(--violet);color:#fff}
+.photo{aspect-ratio:4/5;border-radius:28px 28px 28px 4px;background:var(--soft);overflow:hidden;display:grid;place-items:center;font:800 4rem var(--head);color:var(--violet)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+/* the stack */
+.stack{display:grid;gap:0;border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--white)}
+.layer{display:grid;grid-template-columns:200px 1fr;border-top:1px solid var(--line)}
+.layer:first-child{border-top:0}
+.layer h3{font-size:1.05rem;padding:22px 20px;background:var(--soft);border-right:1px solid var(--line)}
+.layer h3 small{display:block;font:400 .85rem var(--body);color:var(--mute);margin-top:4px}
+.layer ul{list-style:none;padding:14px 22px}
+.layer li{padding:10px 0;border-bottom:1px dashed var(--line)}
+.layer li:last-child{border:0}
+.layer li a{font-weight:600;text-decoration-color:var(--violet);text-underline-offset:3px}
+.layer li span{display:block;color:var(--mute);font-size:.95rem}
+.layer li em{font-style:normal;font-size:.82rem;color:var(--violet);margin-left:6px}
+.stack-note{color:var(--mute);margin-top:14px;font-size:.95rem}
+/* timeline */
+.tl{list-style:none;border-left:2px solid var(--violet);padding-left:28px;display:grid;gap:26px}
+.tl li{position:relative}
+.tl li::before{content:"";position:absolute;left:-36px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--violet)}
+.tl time{color:var(--mute);font-size:.9rem}
+.tl h3{font-size:1.15rem;margin:2px 0 4px}
+.tl p{color:var(--mute);max-width:46em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.edu p{margin-bottom:18px}
+/* gallery */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.grid figure{border-radius:14px;overflow:hidden;background:var(--soft);aspect-ratio:4/3}
+.grid img,.grid video{width:100%;height:100%;object-fit:cover;display:block}
+.grid figcaption{display:none}
+.empty{color:var(--mute)}
+.docs{list-style:none;display:grid;gap:10px;max-width:520px}
+.docs a{display:block;padding:14px 18px;border:1.5px solid var(--line);border-radius:12px;text-decoration:none;font-weight:600;background:var(--white)}
+.docs a:hover{border-color:var(--violet)}
+footer{padding:48px 0;border-top:1px solid var(--line);color:var(--mute)}
+footer a{margin-right:20px;color:var(--ink);font-weight:600}
+@media(max-width:760px){
+  .hero .wrap,.two{grid-template-columns:1fr}
+  .photo{max-width:300px}
+  .layer{grid-template-columns:1fr}
+  .layer h3{border-right:0;border-bottom:1px solid var(--line);padding:14px 18px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <b>Putri Ayu</b>
+  <a href="#work">Work</a><a href="#journey">Journey</a><a href="#gallery">Gallery</a><a href="#docs">Documents</a><a href="#contact">Contact</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <h1>Putri Ayu Pembayun M</h1>
+    <p class="lead">Computer Engineering student at Universitas Indonesia. I build across the whole stack, from processor control logic in VHDL to AI-powered web apps, and care most about clean architecture and things that actually run.</p>
+    <div class="btns">
+      <a class="btn main" href="#work">See my work</a>
+      <a class="btn" href="assets/docs/CV_Putri_Ayu_Pembayun_M.pdf">Download CV</a>
+    </div>
+  </div>
+  <div class="photo"><img src="assets/photo.jpg" alt="Portrait of Putri Ayu Pembayun M" onerror="this.remove();this.parentNode.textContent='PA'"></div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <h2>Work, from the bottom of the stack up</h2>
+  <div class="stack">
+    <div class="layer"><h3>Logic<small>VHDL</small></h3><ul>
+      <li><a href="https://github.com/lisamzhr/FinproPSD_KomputerSuperskalar">Superscalar Processor Controller</a><em>Nov 2025</em><span>2-way superscalar control unit: instruction decoders, hazard detection (RAW, WAR, WAW, structural, control) and branch resolution, with speedup verified in simulation.</span></li>
+    </ul></div>
+    <div class="layer"><h3>Firmware<small>AVR Assembly, Arduino</small></h3><ul>
+      <li><a href="https://github.com/putriayupm/FinproMBD_Kelompok18">Soil-Based Fertilizer Scheduling System</a><em>Jun 2026</em><span>Two Arduinos talking over SPI in pure assembly. Soil data via ADC, shown on an I2C LCD, logged over UART, with multi-threshold LED and buzzer alerts.</span></li>
+    </ul></div>
+    <div class="layer"><h3>Network<small>Cisco Packet Tracer</small></h3><ul>
+      <li><strong>Multi-Cluster Enterprise Network</strong><span>Three clusters with VLSM (/23 to /30), VLANs, VTP, Rapid PVST, PortFast and BPDU Guard, plus inter-VLAN routing, DHCP, DNS, email, NTP and Syslog.</span></li>
+    </ul></div>
+    <div class="layer"><h3>Devices + cloud<small>ESP32, YOLO</small></h3><ul>
+      <li><a href="https://github.com/putriayupm/UNI505_Stage3_Assignment1">AIoT Educational Prototype</a><em>Samsung Innovation Campus</em><span>ESP32 sensors and ESP32-CAM feeding YOLO object detection and OpenAI GPT, with cloud storage, a live dashboard and voice interaction.</span></li>
+    </ul></div>
+    <div class="layer"><h3>Backend + data<small>Cassandra, PostgreSQL</small></h3><ul>
+      <li><a href="https://github.com/Naputriz/TrackIN">TrackIN</a><em>Group project</em><span>Real-time courier tracking on Apache Cassandra with a FastAPI backend, a GPS simulator and a Leaflet.js live map. Includes an insert benchmark against PostgreSQL.</span></li>
+    </ul></div>
+    <div class="layer"><h3>Applications<small>React, Next.js, Java</small></h3><ul>
+      <li><a href="https://github.com/putriayupm/SmartBin">SmartBin</a><em>Nov 2026, team of 3</em><span>Agentic AI dashboard that replaces fixed waste-pickup schedules with daily ones based on predicted bin levels, weather and holidays. I designed the PostgreSQL schema and the Express API with JWT and role-based access, and connected the React dashboard to it. The scheduler uses Claude with tool calling and validates its output before saving.</span></li>
+      <li><a href="https://github.com/eugeniahwd/watch-list-roulette">FilmRoll</a><em>May 2026</em><span>Watch-list roulette web app with custom recommendation algorithms and TMDB data (Next.js, Express, PostgreSQL).</span></li>
+      <li><a href="https://github.com/lisamzhr/Finpro_OOP">Glamour Groove</a><em>Dec 2025</em><span>2D dress-up and dating simulation game with mini-games and six design patterns (Java, LibGDX, Spring Boot, Railway).</span></li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="journey"><div class="wrap">
+  <h2>Journey</h2>
+  <div class="two">
+    <div>
+      <ol class="tl">
+        <li><time>Jan 2026 – now</time><h3>Vice Head of Finance, IME FTUI</h3><p>Financial planning, budgeting and cash flow for the electrical engineering student association; main liaison to the faculty and department.</p></li>
+        <li><time>Feb – Jun 2026</time><h3>Teaching Assistant, Introduction to Engineering Design</h3><p>Guided project-based problem solving and helped organize a prototype exhibition.</p></li>
+        <li><time>Aug 2025 – now</time><h3>Teaching Assistant, Digital System Fundamentals</h3><p>Tutorials on digital logic, plus grading assignments and exams.</p></li>
+        <li><time>Aug – Dec 2025</time><h3>Teaching Assistant, Computational Thinking</h3><p>Tutorial sessions on core computational concepts and problem solving.</p></li>
+        <li><time>Aug – Nov 2025</time><h3>Treasurer, NEST UI</h3><p>Ran full-cycle finances, secured event budgets through funding proposals and sponsors, and closed with a profit.</p></li>
+        <li><time>Feb – Dec 2025</time><h3>Staff, Entrepreneurship and Finance, IME FTUI</h3><p>Named Best Staff for managing division cash flow and co-organizing merchandise pre-orders and technopreneurship sessions.</p></li>
+      </ol>
+    </div>
+    <div class="edu">
+      <h3>Education</h3><br>
+      <p><strong>Universitas Indonesia</strong><br>B.Eng. Computer Engineering, GPA 3.80 / 4.00<br><span style="color:var(--mute)">Aug 2024 – present</span></p>
+      <p><strong>MAN Insan Cendekia Pekalongan</strong><br><span style="color:var(--mute)">Jul 2021 – Jun 2024</span></p>
+      <br><h3>Tools</h3><br>
+      <p style="color:var(--mute)">C, C++, Java, JavaScript/TypeScript, Python, VHDL, AVR Assembly · Next.js, Express.js, Spring Boot, LibGDX · PostgreSQL, MongoDB, Redis, Git, Postman, Railway, ESP32, Arduino, Cisco Packet Tracer</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+  <h2>Gallery</h2>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Photos and videos will appear here.</p>
+</div></section>
+
+<section id="docs"><div class="wrap">
+  <h2>Documents</h2>
+  <ul class="docs" id="docs-list"></ul>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p style="margin-bottom:18px">Open to internships, projects and collaboration. Based in Depok, Indonesia.</p>
+  <a href="mailto:putriayupm06@gmail.com">Email</a>
+  <a href="https://www.linkedin.com/in/putri-ayu-pembayun-m-38714a210">LinkedIn</a>
+  <a href="https://github.com/putriayupm">GitHub</a>
+</div></footer>
+
+<script>
+/* ===== EDIT HERE ===== */
+// Put files in assets/gallery/ and list the names. Photos: .jpg .png .webp. Videos: .mp4 .webm
+const GALLERY = [
+  // {file:"kegiatan-1.jpg", alt:"Presenting at Samsung Innovation Campus"},
+  // {file:"demo.mp4", alt:"SmartBin demo"},
+];
+// Put files in assets/docs/ and list them. For Google Drive, use {title:"...", url:"https://drive.google.com/..."}
+const DOCS = [
+  {title:"Curriculum Vitae (PDF)", url:"assets/docs/CV_Putri_Ayu_Pembayun_M.pdf"},
+  // {title:"Samsung Innovation Campus certificate", url:"assets/docs/sic-certificate.pdf"},
+];
+/* ===================== */
+const grid=document.getElementById("grid");
+GALLERY.forEach(g=>{
+  const f=document.createElement("figure");
+  if(/\.(mp4|webm)$/i.test(g.file)){
+    f.innerHTML=`<video src="assets/gallery/${g.file}" controls preload="metadata" aria-label="${g.alt||""}"></video>`;
+  }else{
+    f.innerHTML=`<img src="assets/gallery/${g.file}" alt="${g.alt||""}" loading="lazy">`;
+  }
+  grid.appendChild(f);
+});
+if(!GALLERY.length) document.getElementById("empty").hidden=false;
+const dl=document.getElementById("docs-list");
+DOCS.forEach(d=>{const li=document.createElement("li");li.innerHTML=`<a href="${d.url}" target="_blank" rel="noopener">${d.title}</a>`;dl.appendChild(li)});
+</script>
+</body>
+</html>
